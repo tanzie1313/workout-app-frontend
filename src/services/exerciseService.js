@@ -7,7 +7,8 @@ export async function getExercises(workoutId) {
 }
 
 export async function createExercise(workoutId, exerciseData) {
-  const response = await fetch(`${API_URL}/workouts/${workoutId}/exercises`, {
+    exerciseData.workout = workoutId;
+  const response = await fetch(`${API_URL}/exercises`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(exerciseData),

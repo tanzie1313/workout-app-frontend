@@ -1,13 +1,14 @@
  import React from 'react'; 
- import { useEffect } from 'react';
+ import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import NotSignedIn from '../components/NotSignedIn';
+import { UserContext } from '../contexts/UserContext';
 
  const WelcomePage = () => {
   
    
         
-   const user = JSON.parse(localStorage.getItem('user'));
+    const {user} = useContext (UserContext);
    
     
     if (!user)

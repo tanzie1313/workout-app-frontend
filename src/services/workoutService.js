@@ -11,10 +11,19 @@ export async function getWorkoutById(id) {
 }
 
 export async function createWorkout(workoutData) {
-  const response = await fetch(`${API_URL}/workouts`, {
+    workoutData.user = JSON.parse(localStorage.getItem('user'))._id;
+    try{
+    const response = await fetch(`${API_URL}/workouts`, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers: { 
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${localStorage.getItem('token')}`
+        },
+
     body: JSON.stringify(workoutData),
   });
   return response.json();
+} catch(error){
+    console.error('Workout creation failed', error);
+}
 }

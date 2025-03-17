@@ -1,9 +1,11 @@
 // src/components/Navbar.js
 import React from 'react';
+import { useContext } from 'react';
+import { UserContext } from '../contexts/UserContext';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 function Navbar() {
-  const user = JSON.parse(localStorage.getItem('user'));
+   const {user} = useContext (UserContext);
 
   return (
     <nav className="navbar">
