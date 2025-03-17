@@ -8,7 +8,7 @@ import SignUp from './pages/SignUp.jsx';
 import About from './pages/About';
 import WorkoutsPage from './pages/WorkoutsPage';
 import SingleWorkoutPage from './pages/SingleWorkoutPage';
-import DeleteExercise from './pages/DeleteExercise.jsx';
+
 import UpdateExercise from './pages/UpdateExercise.jsx';
 import DeleteWorkout from './pages/DeleteWorkout.jsx';
 import UpdateWorkout from './pages/UpdateWorkout.jsx';
@@ -29,7 +29,7 @@ function App() {
         <Route path="/workouts" element={<WorkoutsPage />} />
         <Route path="/workouts/:id" element={<SingleWorkoutPage />} />
         <Route path="/workouts/:id/update" element={<UpdateExercise />} />
-        <Route path="/workouts/:id/delete" element={<DeleteExercise />} />
+       
         <Route path="/workouts/:id/update" element={<UpdateWorkout />} />
         <Route path="/workouts/:id/delete" element={<DeleteWorkout />} />
         <Route path="/welcome" element={<WelcomePage />} />

@@ -14,4 +14,20 @@ export async function createExercise(workoutId, exerciseData) {
     body: JSON.stringify(exerciseData),
   });
   return response.json();
+
 }
+export async function updateExercise(exerciseId, exerciseData) {
+    const response = await fetch(`${API_URL}/exercises/${exerciseId}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(exerciseData),
+    });
+    return response.json();
+  }
+  
+export async function deleteExercise(exerciseId) {
+    const response = await fetch(`${API_URL}/exercises/${exerciseId}`, { method: 'DELETE' } );
+    return  await response.json();
+    }

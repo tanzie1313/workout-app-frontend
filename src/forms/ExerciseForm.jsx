@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import { createExercise } from '../services/exerciseService';
 
-const ExerciseForm = () => {
-  const { id } = useParams();
+const ExerciseForm = ({workoutId, onExerciseCreated}) => {
+
+  
   const navigate = useNavigate();
   const [exercise, setExercise] = useState({
     name: '',
@@ -11,13 +13,7 @@ const ExerciseForm = () => {
     sets: ''
   });
 
-  useEffect(() => {
-    // Fetch the exercise data by ID and set it to state
-    fetch(`/exercises/${id}`)
-      .then(response => response.json())
-      .then(data => setExercise(data))
-      .catch(error => console.error('Error fetching exercise:', error));
-  }, [id]);
+  
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -26,22 +22,18 @@ const ExerciseForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Update the exercise data
-    fetch(`/api/exercises/${id}`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(exercise),
-    })
-      .then(() => navigate('/workouts'))
-      .catch(error => console.error('Error updating exercise:', error));
-  };
+     createExercise (workoutId, exercise)
+     .then (() => onExerciseCreated())
+     .catch(error => console.error('Error creating exercise:', error));
+    
+
+ };
+
 
   return (
     <form onSubmit={handleSubmit}>
       <label>
-        Name: {exercise.name}
+        Name: 
         <input
           type="text"
           name="name"
@@ -50,7 +42,7 @@ const ExerciseForm = () => {
         />
       </label>
       <label>
-        Weight: {exercise.weight}
+        Weight: 
         <input
           type="text"
           name="weight"
@@ -59,7 +51,7 @@ const ExerciseForm = () => {
         />
       </label>
       <label>
-        Reps: {exercise.reps}
+        Reps: 
         <input
           type="text"
           name="reps"
@@ -68,7 +60,7 @@ const ExerciseForm = () => {
         />
       </label>
       <label>
-        Sets: {exercise.sets}
+        Sets: 
         <input
           type="text"
           name="sets"

@@ -27,3 +27,19 @@ export async function createWorkout(workoutData) {
     console.error('Workout creation failed', error);
 }
 }
+export async function updateWorkout(workoutId, workoutData) {  
+    try{
+    const response = await fetch(`${API_URL}/workouts/${workoutId}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${localStorage.getItem('token')}`
+      },
+      body: JSON.stringify(workoutData),
+    });
+    return response.json();
+}
+catch(error){
+    console.error('Workout update failed', error);
+}
+}
