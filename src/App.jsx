@@ -8,6 +8,8 @@ import SignUp from './pages/SignUp.jsx';
 import About from './pages/About';
 import WorkoutsPage from './pages/WorkoutsPage';
 import SingleWorkoutPage from './pages/SingleWorkoutPage';
+import Logout from './pages/Logout';
+
 
 function App() {
   return (
@@ -21,6 +23,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/workouts" element={<WorkoutsPage />} />
         <Route path="/workouts/:id" element={<SingleWorkoutPage />} />
+        <Route path="/logout" element={<Logout />} />
       </Routes>
     </Router>
   );

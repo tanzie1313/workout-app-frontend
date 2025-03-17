@@ -37,7 +37,7 @@ export const UserProvider = ({ children }) => {
     return;
   };
 
-
+  const isAuthenticated = !!user;
   const logout = () => {
     setUser(null);
     localStorage.removeItem('user');
