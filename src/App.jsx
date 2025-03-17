@@ -9,6 +9,7 @@ import About from './pages/About';
 import WorkoutsPage from './pages/WorkoutsPage';
 import SingleWorkoutPage from './pages/SingleWorkoutPage';
 import Logout from './pages/Logout';
+import WelcomePage from './pages/WelcomePage';
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/workouts" element={<WorkoutsPage />} />
         <Route path="/workouts/:id" element={<SingleWorkoutPage />} />
+        <Route path="/welcome" element={<WelcomePage />} />
         <Route path="/logout" element={<Logout />} />
       </Routes>
     </Router>

@@ -13,7 +13,7 @@ const SignIn = () => {
     e.preventDefault();
     try {
       await login({ username, password });
-      navigate('/workouts');
+      navigate('/welcome');
     } catch (err) {
       setError('Invalid credentials');
     }

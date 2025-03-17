@@ -9,7 +9,9 @@ export const authService = {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(credentials),
   });
-  return response.json();
+  //todo: handle errors
+    const data = await response.json();
+ return data;
 },
 
  async  register(userData) {
