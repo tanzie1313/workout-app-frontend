@@ -1,25 +1,42 @@
-import { createContext, useState } from 'react';
+import React, { createContext, useState, useEffect } from 'react';
 
-const UserContext = createContext();
+export const UserContext = createContext();
 
-const getUserFromToken = () => {
-  const token = localStorage.getItem('token');
+export const UserProvider = ({ children }) => {
+  const [user, setUser] = useState(null);
 
-  if (!token) return null;
+  // Check localStorage for any stored user on app start
+  useEffect(() => {
+    const storedUser = localStorage.getItem('user');
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
+    }
+  }, []);
 
-  return JSON.parse(atob(token.split('.')[1])).payload;
-};
+  const login = async (credentials) => {
+    // Your login logic here…
+    // e.g., call an auth service and then:
+    setUser(response.user);
+    localStorage.setItem('user', JSON.stringify(response.user));
+    localStorage.setItem('token', response.token);
+  };
 
-function UserProvider({ children }) {
-  const [user, setUser] = useState(getUserFromToken());
+  const register = async (userData) => {
+    // Your registration logic here…
+    setUser(response.user);
+    localStorage.setItem('user', JSON.stringify(response.user));
+    localStorage.setItem('token', response.token);
+  };
 
-  const value = { user, setUser };
+  const logout = () => {
+    setUser(null);
+    localStorage.removeItem('user');
+    localStorage.removeItem('token');
+  };
 
   return (
-    <UserContext.Provider value={value}>
+    <UserContext.Provider value={{ user, login, register, logout }}>
       {children}
     </UserContext.Provider>
   );
 };
-
-export { UserProvider, UserContext };
