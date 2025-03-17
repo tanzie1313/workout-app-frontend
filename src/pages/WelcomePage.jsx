@@ -1,6 +1,7 @@
  import React from 'react'; 
  import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import NotSignedIn from '../components/NotSignedIn';
 
  const WelcomePage = () => {
   
@@ -22,14 +23,5 @@ import { Link } from 'react-router-dom';
     );
      };
  
-     const NotSignedIn = () => {
-        return (
-          <div>
-            <h2>Please sign in</h2>
-            <p>If you are not a user, please sign in or register to access workouts.</p>
-            {/* Your sign-in form goes here */}
-          </div>
-        );
-    }
         export default WelcomePage;
       
