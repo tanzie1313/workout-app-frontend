@@ -2,7 +2,7 @@
 const API_URL = 'http://localhost:3000';
 
 export async function getExercises(workoutId) {
-  const response = await fetch(`${API_URL}/workouts/${workoutId}/exercises`);
+  const response = await fetch(`${API_URL}/workouts/${workoutId}`);
   return response.json();
 }
 

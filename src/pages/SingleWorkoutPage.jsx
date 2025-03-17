@@ -21,12 +21,13 @@ const SingleWorkoutPage = () => {
 
   const fetchExercises = async () => {
     const data = await getExercises(id);
-    setExercises(data);
+    
+    setExercises(data.exercises);
   };
 
   return (
     <div className="container">
-      {workout ? (
+      {workout && exercises ? (
         <>
           <h2>{workout.title}</h2>
           <ExerciseForm workoutId={id} onExerciseCreated={fetchExercises} />

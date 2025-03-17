@@ -12,7 +12,8 @@ const SignUp = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await register({ username, password });
+      const regdata =  await register({ username, password });
+      console.log(regdata);
       navigate('/workouts');
     } catch (err) {
       setError('Registration failed');
