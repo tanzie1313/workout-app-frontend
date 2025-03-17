@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 
-const ExerciseForm = () => {
+const UpdateExercise = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [exercise, setExercise] = useState({
@@ -10,7 +10,6 @@ const ExerciseForm = () => {
     reps: '',
     sets: ''
   });
-
   useEffect(() => {
     // Fetch the exercise data by ID and set it to state
     fetch(`/exercises/${id}`)
@@ -27,7 +26,7 @@ const ExerciseForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Update the exercise data
-    fetch(`/api/exercises/${id}`, {
+    fetch(`/exercises/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -39,46 +38,28 @@ const ExerciseForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Name: {exercise.name}
-        <input
-          type="text"
-          name="name"
-          value={exercise.name}
-          onChange={handleChange}
-        />
-      </label>
-      <label>
-        Weight: {exercise.weight}
-        <input
-          type="text"
-          name="weight"
-          value={exercise.weight}
-          onChange={handleChange}
-        />
-      </label>
-      <label>
-        Reps: {exercise.reps}
-        <input
-          type="text"
-          name="reps"
-          value={exercise.reps}
-          onChange={handleChange}
-        />
-      </label>
-      <label>
-        Sets: {exercise.sets}
-        <input
-          type="text"
-          name="sets"
-          value={exercise.sets}
-          onChange={handleChange}
-        />
-      </label>
-      <button type="submit">Enter Exercise</button>
-    </form>
-  );
+    
+      <form onSubmit={handleSubmit}>
+        <label>
+          Name:
+          <input type="text" name="name" value={exercise.name} onChange={handleChange} />
+        </label>
+        <label>
+          Weight:
+          <input type="text" name="weight" value={exercise.weight} onChange={handleChange} />
+        </label>
+        <label>
+          Reps:
+          <input type="text" name="reps" value={exercise.reps} onChange={handleChange} />
+        </label>
+        <label>
+          Sets:
+          <input type="text" name="sets" value={exercise.sets} onChange={handleChange} />
+        </label>
+        <button type="submit">Update Exercise</button>
+      </form>
+    );
+    
 };
 
-export default ExerciseForm;
+export default UpdateExercise;

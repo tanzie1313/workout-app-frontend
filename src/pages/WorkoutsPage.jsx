@@ -25,16 +25,30 @@ const WorkoutsPage = () => {
     <div className="container">
       <h2>Your Workouts</h2>
       <WorkoutForm onWorkoutCreated={fetchWorkouts} />
-      <ul>
-        {workouts.map(workout => (
-          <li key={workout._id}>
-            <Link to={`/workouts/${workout._id}`}>{workout.title}</Link>
-          </li>
-        ))}
-      </ul>
+      
+      
+     
+      <div>
+        <h1>Workouts Page</h1>
+        <ul>
+          {workouts.map((workout) => (
+            <li key={workout.id}>
+              <Link to={`/workouts/${workout._id}`}>{workout.title}</Link>
+              <Link to={`/workouts/${workout._id}/update`}>
+                <button>Update</button>
+              </Link>
+              <Link to={`/workouts/${workout._id}/delete`}>
+                <button>Delete</button>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };
 
 export default WorkoutsPage;
+
+
 
