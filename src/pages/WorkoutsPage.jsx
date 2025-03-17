@@ -34,7 +34,7 @@ const WorkoutsPage = () => {
           {workouts.map((workout) => (
             <li key={workout.id}>
               <Link to={`/workouts/${workout._id}`}>{workout.title}</Link>
-              <Link to={`/workouts/${workout._id}/update`}>
+              <Link to={`/workouts/${workout._id}`}>
                 <button>Update</button>
               </Link>
               <Link to={`/workouts/${workout._id}/delete`}>

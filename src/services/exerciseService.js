@@ -1,5 +1,5 @@
 
-const API_URL = 'http://localhost:3000';
+const API_URL = import.meta.env.VITE_BASE_URL ||'http://localhost:3000';
 
 export async function getExercises(workoutId) {
   const response = await fetch(`${API_URL}/workouts/${workoutId}`);
@@ -26,7 +26,7 @@ export async function updateExercise(exerciseId, exerciseData) {
     });
     return response.json();
   }
-  
+
 export async function deleteExercise(exerciseId) {
     const response = await fetch(`${API_URL}/exercises/${exerciseId}`, { method: 'DELETE' } );
     return  await response.json();
