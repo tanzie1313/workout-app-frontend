@@ -3,10 +3,12 @@ import { Link } from 'react-router-dom';
 import WorkoutForm from '../forms/WorkoutForm';
 import { getWorkouts } from '../services/workoutService';
 import NotSignedIn from '../components/NotSignedIn';
+import  { deleteWorkout } from '../services/workoutService';
 
 const WorkoutsPage = () => {
   const [workouts, setWorkouts] = useState([]);
   const user = JSON.parse(localStorage.getItem('user'));
+  const [refetch, setRefetch] = useState(false);
    
     
   if (!user)
@@ -14,11 +16,21 @@ const WorkoutsPage = () => {
 
   useEffect(() => {
     fetchWorkouts();
-  }, []);
-
+  },[]);
+  
+  useEffect(() => { 
+    if (!refetch) return;
+    fetchWorkouts();
+    setRefetch(false);
+  },[refetch]);
+  
   const fetchWorkouts = async () => {
     const data = await getWorkouts();
     setWorkouts(data);
+  };
+  const removeWorkout = async (id) => {
+   await deleteWorkout(id);
+    setRefetch(true);
   };
 
   return (
@@ -37,9 +49,9 @@ const WorkoutsPage = () => {
               <Link to={`/workouts/${workout._id}`}>
                 <button>Update</button>
               </Link>
-              <Link to={`/workouts/${workout._id}/delete`}>
-                <button>Delete</button>
-              </Link>
+              {/* <Link to={`/workouts/${workout._id}/delete`}> */}
+                <button onClick= {()=>removeWorkout(workout._id)}>Delete</button>
+              {/* </Link> */}
             </li>
           ))}
         </ul>

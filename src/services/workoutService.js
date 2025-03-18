@@ -43,3 +43,16 @@ catch(error){
     console.error('Workout update failed', error);
 }
 }
+export async function deleteWorkout(workoutId) {    
+    try{
+    const response = await fetch(`${API_URL}/workouts/${workoutId}`, { method: 'DELETE', headers
+    : {
+        'Authorization': `Bearer ${localStorage.getItem('token')}`
+    }
+    } );
+    return  await response.json();
+}
+catch(error){
+    console.error('Workout deletion failed', error);
+}   
+}
