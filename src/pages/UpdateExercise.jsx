@@ -38,28 +38,28 @@ const UpdateExercise = () => {
   };
 
   return (
-    
-      <form onSubmit={handleSubmit}>
-        <label>
-          Name:
-          <input type="text" name="name" value={exercise.name} onChange={handleChange} />
-        </label>
-        <label>
-          Weight:
-          <input type="text" name="weight" value={exercise.weight} onChange={handleChange} />
-        </label>
-        <label>
-          Reps:
-          <input type="text" name="reps" value={exercise.reps} onChange={handleChange} />
-        </label>
-        <label>
-          Sets:
-          <input type="text" name="sets" value={exercise.sets} onChange={handleChange} />
-        </label>
-        <button type="submit">Update Exercise</button>
-      </form>
-    );
-    
+
+    <form onSubmit={handleSubmit}>
+      <label>
+        Name:
+        <input type="text" name="name" value={exercise.name} onChange={handleChange} />
+      </label>
+      <label>
+        Weight:
+        <input type="text" name="weight" value={exercise.weight} onChange={handleChange} />
+      </label>
+      <label>
+        Reps:
+        <input type="text" name="reps" value={exercise.reps} onChange={handleChange} />
+      </label>
+      <label>
+        Sets:
+        <input type="text" name="sets" value={exercise.sets} onChange={handleChange} />
+      </label>
+      <button type="submit">Update Exercise</button>
+    </form>
+  );
+
 };
 
 export default UpdateExercise;

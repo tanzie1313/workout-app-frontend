@@ -29,13 +29,13 @@ const SingleWorkoutPage = () => {
     setExercises(data.exercises);
   };
   useEffect(() => {
-    if (!refetch)  return
-      
+    if (!refetch) return
+
     fetchExercises();
     setRefetch(false);
   }
-    , [ refetch  ]);
-    
+    , [refetch]);
+
 
   return (
     <div className="container">
@@ -99,9 +99,9 @@ const EditableExercise = ({ exercise, onDelete, setRefetch }) => {
       await updateExercise(exercise._id, { name, sets, reps, weight });
     }
     setIsEditing(!isEditing);
-    setRefetch(true); 
+    setRefetch(true);
   }
-  
+
   return (
     <>
 

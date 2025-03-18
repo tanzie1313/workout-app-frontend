@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { createExercise } from '../services/exerciseService';
 
-const ExerciseForm = ({workoutId, onExerciseCreated}) => {
+const ExerciseForm = ({ workoutId, onExerciseCreated }) => {
 
-  
+
   const navigate = useNavigate();
   const [exercise, setExercise] = useState({
     name: '',
@@ -13,7 +13,7 @@ const ExerciseForm = ({workoutId, onExerciseCreated}) => {
     sets: ''
   });
 
-  
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -22,18 +22,18 @@ const ExerciseForm = ({workoutId, onExerciseCreated}) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-     createExercise (workoutId, exercise)
-     .then (() => onExerciseCreated())
-     .catch(error => console.error('Error creating exercise:', error));
-    
+    createExercise(workoutId, exercise)
+      .then(() => onExerciseCreated())
+      .catch(error => console.error('Error creating exercise:', error));
 
- };
+
+  };
 
 
   return (
     <form onSubmit={handleSubmit}>
       <label>
-        Name: 
+        Name:
         <input
           type="text"
           name="name"
@@ -42,7 +42,7 @@ const ExerciseForm = ({workoutId, onExerciseCreated}) => {
         />
       </label>
       <label>
-        Weight: 
+        Weight:
         <input
           type="text"
           name="weight"
@@ -51,7 +51,7 @@ const ExerciseForm = ({workoutId, onExerciseCreated}) => {
         />
       </label>
       <label>
-        Reps: 
+        Reps:
         <input
           type="text"
           name="reps"
@@ -60,7 +60,7 @@ const ExerciseForm = ({workoutId, onExerciseCreated}) => {
         />
       </label>
       <label>
-        Sets: 
+        Sets:
         <input
           type="text"
           name="sets"

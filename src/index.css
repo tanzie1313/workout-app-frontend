@@ -1,9 +1,9 @@
-
 /* src/index.css */
 /* 80s Theme Example */
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
 }
@@ -21,7 +21,12 @@ body {
   padding: 1rem;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: #ff00cc;
   text-shadow: 0 0 8px #ff00cc;
 }
@@ -62,8 +67,9 @@ textarea {
   outline: none;
   text-shadow: 0 0 4px #39ff14;
 }
-input:focus, textarea:focus {
+
+input:focus,
+textarea:focus {
   border-color: #ff00cc;
   text-shadow: 0 0 6px #ff00cc;
 }
-

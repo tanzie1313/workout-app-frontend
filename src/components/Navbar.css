@@ -1,55 +1,56 @@
-
 /* Navbar.css */
 
 /* Navbar container styling */
 .navbar {
-    background: #222;            /* Dark background */
+    background: #222;
+    /* Dark background */
     padding: 1rem 2rem;
-    box-shadow: 0 0 10px #ff00cc; /* Neon glow effect */
-  }
-  
-  /* Centering and layout for Navbar content */
-  .navbar-container {
+    box-shadow: 0 0 10px #ff00cc;
+    /* Neon glow effect */
+}
+
+/* Centering and layout for Navbar content */
+.navbar-container {
     max-width: 1200px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
-  
-  /* Logo styling */
-  .navbar-logo {
+}
+
+/* Logo styling */
+.navbar-logo {
     color: #39ff14;
     font-size: 1.5rem;
     text-decoration: none;
     text-shadow: 0 0 4px #39ff14;
-  }
-  
-  /* Navigation menu list */
-  .nav-menu {
+}
+
+/* Navigation menu list */
+.nav-menu {
     list-style: none;
     display: flex;
     gap: 1.5rem;
     margin: 0;
     padding: 0;
-  }
-  
-  /* Navigation link styling */
-  .nav-links {
+}
+
+/* Navigation link styling */
+.nav-links {
     color: #39ff14;
     text-decoration: none;
     font-size: 1rem;
     text-shadow: 0 0 4px #39ff14;
     transition: color 0.2s ease, text-shadow 0.2s ease;
-  }
-  
-  .nav-links:hover {
+}
+
+.nav-links:hover {
     color: #ff00cc;
     text-shadow: 0 0 8px #ff00cc;
-  }
-  
-  /* Button styling for sign out or other actions */
-  .nav-btn {
+}
+
+/* Button styling for sign out or other actions */
+.nav-btn {
     font-family: 'Press Start 2P', cursive;
     background: transparent;
     border: 2px solid #39ff14;
@@ -58,11 +59,10 @@
     cursor: pointer;
     transition: all 0.2s ease-in-out;
     text-shadow: 0 0 4px #39ff14;
-  }
-  
-  .nav-btn:hover {
+}
+
+.nav-btn:hover {
     color: #ff00cc;
     border-color: #ff00cc;
     text-shadow: 0 0 8px #ff00cc;
-  }
-  
+}

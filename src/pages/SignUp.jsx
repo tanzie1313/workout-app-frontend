@@ -12,9 +12,9 @@ const SignUp = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const regdata =  await register({ username, password });
-      console.log(regdata);
-      navigate('/workouts');
+      const regdata = await register({ username, password });
+
+      navigate('/welcome');
     } catch (err) {
       setError('Registration failed');
     }
